@@ -26,8 +26,23 @@ const PokemonsForm = () => {
                         <Field name='hp' type="number" placeholder='HP' className="bg-zinc-800 rounded p-2"/>   
                         <Field name='attack' type="text" placeholder='Ataque' className="bg-zinc-800 rounded p-2"/>   
                         <Field name='special' type="text" placeholder='Especial' className="bg-zinc-800 rounded p-2"/>
-                        <input type="file" className="bg-zinc-800 rounded p-2 text-sm cursor-pointer file:bg-white file:border-0 file:rounded file:font-semibold file:mr-2 file:p-1 file:px-2 file:cursor-pointer file:transition-colors hover:file:bg-zinc-300"/>
-                        <button type="submit" className="bg-cyan-300 rounded-md text-black font-semibold p-2 transition-colors hover:bg-white">Enviar</button>
+                        <input type="file" className="
+                            bg-zinc-800
+                            rounded p-2 text-sm cursor-pointer 
+                            file:bg-white file:border-0 file:rounded 
+                            file:font-semibold 
+                            file:mr-2 
+                            file:p-1 
+                            file:px-2 
+                            file:cursor-pointer file:transition-colors hover:file:bg-zinc-300"/>
+                        <button type="submit" className="
+                            bg-cyan-300 
+                            rounded-md 
+                            text-black 
+                            font-semibold 
+                            p-2 
+                            transition-colors 
+                            hover:bg-white">Enviar</button>
                     </Form>
                 )
             }}
