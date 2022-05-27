@@ -1,11 +1,8 @@
 import { Outlet } from "react-router-dom";
 import Header from "../components/sections/Header";
-import usePokemons from "../hooks/usePokemons";
 
 
 const PokemonsLayout = () => {
-    const context = usePokemons();
-    console.log(context);
 
     const applicationName = "PokémonInc";
 
