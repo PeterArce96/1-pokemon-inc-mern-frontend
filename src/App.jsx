@@ -20,3 +20,4 @@ function App() {
 export default App;
 
 // Route, adentro de Routes (importar los 2). Rutas que nos van a llevar a las diferentes acciones que tenga el proyecto.
+//Route --> Permitir navegabilidad sin recarga de la página.
