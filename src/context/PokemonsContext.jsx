@@ -6,11 +6,16 @@ export const PokemonsProvider = ({ children }) => {
     
     const [pokemons, setPokemons] = useState([]);
 
+    const createPokemon = async (pokemon) => {
+        console.log(pokemon);
+    };
+
     return (
     <PokemonsContext.Provider
         value={{
             pokemons,
-            setPokemons
+            setPokemons,
+            createPokemon
         }}
     >
         {children}
