@@ -1,7 +1,7 @@
 import {Routes, Route, Navigate} from 'react-router-dom';
 
 import './App.css';
-import PokemonsLayout from './layouts/pokemons/PokemonsLayout';
+import PokemonsLayout from './layouts/PokemonsLayout'
 import { PokemonsProvider } from './context/PokemonsContext';
 
 function App() {
