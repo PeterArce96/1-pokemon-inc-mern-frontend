@@ -4,6 +4,7 @@ import './App.css';
 import PokemonsLayout from './layouts/PokemonsLayout'
 import { PokemonsProvider } from './context/PokemonsContext';
 import PokemonsCreate from './pages/pokemons/PokemonsCreate';
+import PokemonsRead from './pages/pokemons/PokemonsRead';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         <Route path="/pokemons" element={<PokemonsLayout />}>
           <Route path="create" element={<PokemonsCreate/>} />
           <Route path="update" element={<h2>Update Pokémons</h2>} />
-          <Route index element={<h2>Pokémons</h2>} />
+          <Route index element={<PokemonsRead />} />
         </Route>
         <Route path="*" element={<h2>404</h2>} />
       </Routes>

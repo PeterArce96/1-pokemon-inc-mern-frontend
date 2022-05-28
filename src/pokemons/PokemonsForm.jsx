@@ -1,7 +1,10 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as yup from 'yup';
+import usePokemons from '../hooks/usePokemons';
 
 const PokemonsForm = () => {
+
+    const { createPokemon } = usePokemons();
 
     return (
         <Formik 
@@ -20,8 +23,8 @@ const PokemonsForm = () => {
                 attack: yup.string().required('El ataque es requerido'),
                 special: yup.string().required('El especial es requerido'),
             })}
-            onSubmit={(values, actions) => {
-                console.log(values);
+            onSubmit={async (values, actions) => {
+                await createPokemon(values);
                 actions.setSubmitting(false);
                 actions.resetForm();
             }}
@@ -75,8 +78,9 @@ const PokemonsForm = () => {
                             p-2 
                             transition-colors 
                             hover:bg-white"
-                            disabled={isSubmitting}>
-                                { isSubmitting ? 'Loading' : 'Enviar'}
+                            disabled={isSubmitting}
+                            >
+                            {isSubmitting ? 'Loading 💭' : 'Enviar'}
                         </button>
                     </Form>
                 )
