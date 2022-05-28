@@ -1,9 +1,7 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as yup from 'yup';
-import usePokemons from '../hooks/usePokemons'
 
 const PokemonsForm = () => {
-    const {createPokemon} = usePokemons();
 
     return (
         <Formik 
@@ -22,11 +20,13 @@ const PokemonsForm = () => {
                 attack: yup.string().required('El ataque es requerido'),
                 special: yup.string().required('El especial es requerido'),
             })}
-            onSubmit={(values) => {
-                createPokemon(values);
+            onSubmit={(values, actions) => {
+                console.log(values);
+                actions.setSubmitting(false);
+                actions.resetForm();
             }}
         >
-            {({ handleSubmit }) => {
+            {({ handleSubmit, setFieldValue, isSubmitting }) => {
                 return (
                     <Form
                         onSubmit={handleSubmit} className="flex flex-col gap-4 bg-zinc-700 rounded-md w-4/5 max-w-sm mx-auto p-4"
@@ -56,7 +56,7 @@ const PokemonsForm = () => {
                             <ErrorMessage name="special" component="span" className="text-rose-500 text-sm"/>
                         </div>
                         
-                        <input type="file" className="
+                        <input type="file" name="image" className="
                             bg-zinc-800
                             rounded p-2 text-sm cursor-pointer 
                             file:bg-white file:border-0 file:rounded 
@@ -64,7 +64,9 @@ const PokemonsForm = () => {
                             file:mr-2 
                             file:p-1 
                             file:px-2 
-                            file:cursor-pointer file:transition-colors hover:file:bg-zinc-300"/>
+                            file:cursor-pointer file:transition-colors hover:file:bg-zinc-300"
+                            onChange={(e) => setFieldValue('image', e.currentTarget.files[0]
+                            )} required/>
                         <button type="submit" className="
                             bg-cyan-300 
                             rounded-md 
@@ -72,7 +74,10 @@ const PokemonsForm = () => {
                             font-semibold 
                             p-2 
                             transition-colors 
-                            hover:bg-white">Enviar</button>
+                            hover:bg-white"
+                            disabled={isSubmitting}>
+                                { isSubmitting ? 'Loading' : 'Enviar'}
+                        </button>
                     </Form>
                 )
             }}
