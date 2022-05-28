@@ -38,7 +38,7 @@ export const PokemonsProvider = ({ children }) => {
         try {
             const options = {
                 method: 'GET',
-                url: `${process.env.REACT_APP_POKEMON_INC_MERN_API_URL}/pokemons`
+                url: `${process.env.REACT_APP_POKEMON_INC_MERN_API_URL}`
             };
             const { data } = await axios(options);
             setPokemons(data);
